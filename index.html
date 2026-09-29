@@ -6,49 +6,39 @@
   <title>Carmela - Un resumen de mis mejores días</title>
   <style>
     :root {
-      --bg1: #ff9ec6;
-      --bg2: #ffd8ea;
-      --bg3: #c9b6ff;
+      --bg1: #ffb1cf;
+      --bg2: #ffdfe9;
+      --bg3: #d8c6ff;
       --pink: #f5576c;
-      --pink-dark: #d83d63;
-      --purple: #7a5cf2;
-      --lavender: #f5d0ff;
-      --white: #ffffff;
-      --text: #2a2a2a;
-      --muted: #6b6b6b;
-      --soft: rgba(255,255,255,0.82);
-      --shadow: 0 25px 60px rgba(80, 24, 68, 0.23);
-      --card-radius: 28px;
+      --pink-dark: #d73959;
+      --purple: #7b5af8;
+      --white: #fff;
+      --text: #1e1e1e;
+      --muted: #6f6f6f;
+      --soft: rgba(255,255,255,0.65);
+      --shadow: 0 30px 70px rgba(109, 58, 92, 0.24);
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, rgba(255, 177, 207, 0.95), rgba(255, 223, 233, 0.96) 30%, rgba(216, 198, 255, 0.95));
       color: var(--text);
-      background:
-        linear-gradient(135deg, rgba(255, 158, 198, 0.95), rgba(255, 216, 234, 0.95) 32%, rgba(201, 182, 255, 0.96));
       overflow-x: hidden;
     }
 
     @keyframes drift {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-14px) rotate(4deg); }
+      50% { transform: translateY(-16px) rotate(5deg); }
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.06); }
-    }
+    .float { animation: drift 7s ease-in-out infinite; }
 
-    .float { animation: drift 6s ease-in-out infinite; }
-    .pulse { animation: pulse 2.6s ease-in-out infinite; }
-
-    .background-decor {
+    .bg-decor {
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -60,47 +50,47 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(12px);
-      opacity: 0.35;
+      opacity: 0.42;
     }
 
     .blob.one {
-      width: 300px; height: 300px; background: rgba(255,255,255,0.55);
-      top: 10%; left: 8%;
+      width: 320px; height: 320px; background: rgba(255,255,255,0.55);
+      top: 5%; left: 8%;
     }
     .blob.two {
-      width: 340px; height: 340px; background: rgba(240, 144, 200, 0.45);
-      top: 50%; right: 10%;
+      width: 380px; height: 380px; background: rgba(241, 129, 187, 0.32);
+      top: 56%; right: 10%;
     }
     .blob.three {
-      width: 260px; height: 260px; background: rgba(184, 165, 255, 0.45);
-      bottom: 6%; left: 28%;
+      width: 260px; height: 260px; background: rgba(174, 154, 255, 0.32);
+      bottom: 8%; left: 28%;
     }
 
     .page {
       position: relative;
       z-index: 1;
-      width: min(100%, 1280px);
+      width: min(100%, 1180px);
       margin: 0 auto;
-      padding: 24px 18px 50px;
+      padding: 16px 12px 50px;
     }
 
     .feed {
-      width: min(100%, 900px);
+      width: min(100%, 880px);
       margin: 0 auto;
-      background: rgba(255,255,255,0.68);
+      background: rgba(255,255,255,0.7);
       border: 1px solid rgba(255,255,255,0.55);
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+      border-radius: 32px;
       overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
-    .post-header {
+    .header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 18px 12px;
-      background: rgba(255,255,255,0.35);
+      padding: 14px 18px 12px;
+      background: rgba(255,255,255,0.25);
       border-bottom: 1px solid rgba(255,255,255,0.25);
     }
 
@@ -108,57 +98,61 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 700;
-      color: var(--text);
+      font-weight: 800;
+      font-size: 0.95rem;
     }
 
     .avatar {
       width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, #f9d0dc, #b7a9ff);
-      display: grid; place-items: center; color: var(--white); font-size: 1.1rem;
-      box-shadow: 0 8px 16px rgba(140, 91, 196, 0.25);
+      background: linear-gradient(135deg, #f7bfd7, #b69fff);
+      color: white; font-weight: 900;
+      display: grid; place-items: center;
+      box-shadow: 0 8px 18px rgba(122, 90, 248, 0.25);
     }
 
     .actions {
-      display: flex; gap: 14px; font-size: 1.5rem;
+      display: flex; align-items: center; gap: 14px;
+      font-size: 1.5rem;
     }
 
     .hero {
       position: relative;
-      height: min(68vh, 760px);
-      min-height: 420px;
-      background: linear-gradient(135deg, #ffbdd8, #f57ebe 45%, #b29bff 100%);
+      width: 100%;
+      height: min(68vh, 700px);
+      min-height: 380px;
+      background: linear-gradient(135deg, #ffb0d1, #f25a7d 42%, #897ef6 100%);
       overflow: hidden;
     }
 
     .hero img {
       display: block; width: 100%; height: 100%; object-fit: cover;
-      filter: saturate(1.05) contrast(1.05);
+      filter: saturate(1.08) contrast(1.04);
     }
 
     .hero-badge {
       position: absolute;
       left: 18px; bottom: 18px;
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(8px);
-      color: white;
-      padding: 14px 18px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.34);
+      color: #fff;
+      padding: 10px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.32);
-      font-weight: 700;
-      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.16);
     }
 
-    .post-body {
-      padding: 16px 18px 0;
+    .body {
+      padding: 14px 18px 0;
     }
 
     .toolbar {
       display: flex; align-items: center; justify-content: space-between;
-      margin: 2px 0 14px;
-      font-size: 1.45rem;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
     }
 
     .tool-left, .tool-right {
@@ -166,7 +160,7 @@
     }
 
     .likes {
-      font-weight: 700; margin: 8px 0 2px; font-size: 0.98rem;
+      font-size: 0.9rem; font-weight: 800; margin: 8px 0 3px;
     }
 
     .caption {
@@ -175,36 +169,56 @@
       color: var(--text);
     }
 
-    .caption strong {
-      font-weight: 800;
+    .caption strong { font-weight: 900; }
+    .caption .tag { color: #4d46b4; font-weight: 800; }
+
+    .details-card {
+      margin: 18px 0 0;
+      background: linear-gradient(135deg, #f7b3d5 0%, #f55f7d 50%, #8a7ef7 100%);
+      border-radius: 22px;
+      padding: 18px 16px;
+      color: white;
+      box-shadow: 0 16px 26px rgba(125, 70, 128, 0.18);
     }
 
-    .caption .tag {
-      color: #5a4ecf; font-weight: 700;
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+    }
+
+    .detail-icon { font-size: 1.45rem; min-width: 30px; }
+    .detail-label {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.95;
+    }
+    .detail-value {
+      font-size: 1.02rem; font-weight: 800; margin-top: 2px;
     }
 
     .divider {
-      height: 1px; background: rgba(0,0,0,0.08); margin: 18px 0 8px;
+      height: 1px; background: rgba(0,0,0,0.08); margin: 14px 0 8px;
     }
 
     .gallery-wrap {
       padding: 0 18px 22px;
     }
 
-    .gallery-header {
+    .gallery-head {
       display: flex; align-items: center; justify-content: space-between;
-      margin: 18px 0 16px;
-      gap: 10px;
+      margin: 18px 0 14px;
+      gap: 8px;
     }
 
     .gallery-title {
       display: flex; align-items: center; gap: 8px;
-      font-weight: 800;
-      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      font-weight: 900;
     }
 
-    .gallery-stats {
-      color: var(--muted); font-size: 0.88rem; font-weight: 600;
+    .gallery-count {
+      color: var(--muted);
+      font-size: 0.8rem; font-weight: 700;
     }
 
     .gallery-grid {
@@ -214,51 +228,58 @@
     }
 
     .photo-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
+      width: 100%;
       aspect-ratio: 1 / 1;
-      background: linear-gradient(135deg, #f8d6e7, #d4cbff);
-      box-shadow: 0 12px 22px rgba(83, 50, 94, 0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 22px rgba(60, 42, 76, 0.12);
+      border: 1px solid rgba(255,255,255,0.5);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: linear-gradient(135deg, #f9d6e7, #dfd1ff);
     }
 
     .photo-card:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 18px 28px rgba(83, 50, 94, 0.18);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px rgba(60, 42, 76, 0.18);
     }
 
     .photo-card img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover;
     }
 
     .photo-card.more {
-      background: linear-gradient(135deg, rgba(245,87,108,0.92), rgba(122,92,242,0.9));
-      display: grid; place-items: center; color: white; font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(245,87,108,1), rgba(123,90,248,0.95));
+      color: white; font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 0.04em;
     }
 
-    .photo-card.more span {
+    .photo-card.more .more-badge {
+      width: 58px; height: 58px; border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
-      width: 58px; height: 58px; border-radius: 50%; background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
     }
 
     @media (max-width: 700px) {
-      .page { padding: 14px 10px 28px; }
-      .feed { border-radius: 20px; }
-      .post-header { padding: 12px 14px 8px; }
-      .profile { font-size: 0.92rem; }
-      .hero { min-height: 300px; }
-      .toolbar { font-size: 1.2rem; }
-      .post-body, .gallery-wrap { padding-left: 14px; padding-right: 14px; }
+      .page { padding: 10px 8px 30px; }
+      .feed { border-radius: 18px; }
+      .header { padding: 12px 14px 8px; }
+      .body, .gallery-wrap { padding-left: 14px; padding-right: 14px; }
+      .hero { min-height: 320px; }
       .gallery-grid { gap: 6px; }
       .photo-card { border-radius: 12px; }
+      .actions { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="background-decor" aria-hidden="true">
+  <div class="bg-decor" aria-hidden="true">
     <div class="blob one float"></div>
     <div class="blob two float"></div>
     <div class="blob three float"></div>
@@ -266,9 +287,9 @@
 
   <div class="page">
     <div class="feed">
-      <div class="post-header">
+      <div class="header">
         <div class="profile">
-          <div class="avatar pulse">C</div>
+          <div class="avatar">C</div>
           <div>carmela</div>
         </div>
         <div class="actions" aria-label="Acciones">
@@ -278,11 +299,11 @@
       </div>
 
       <div class="hero">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Foto de Carmela" />
+        <img id="heroImage" src="https://raw.githubusercontent.com/milialassia/carmela-birthday/main/PORTADA.jpeg" alt="Carmela" />
         <div class="hero-badge">13 años</div>
       </div>
 
-      <div class="post-body">
+      <div class="body">
         <div class="toolbar">
           <div class="tool-left">
             <span>♡</span>
@@ -299,28 +320,89 @@
           <strong>carmela</strong> Un resumen de mis mejores días. <span class="tag">#Carmela13</span> <span class="tag">#BestMoments</span>
         </div>
 
+        <div class="details-card">
+          <div class="detail-row">
+            <div class="detail-icon">📅</div>
+            <div>
+              <div class="detail-label">Fecha</div>
+              <div class="detail-value">31 de Octubre de 2026</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">⏰</div>
+            <div>
+              <div class="detail-label">Hora</div>
+              <div class="detail-value">12:30 a 17:00 hs</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div class="detail-icon">📍</div>
+            <div>
+              <div class="detail-label">Lugar</div>
+              <div class="detail-value">Complejo Deportivo La Tatenguita</div>
+            </div>
+          </div>
+        </div>
+
         <div class="divider"></div>
       </div>
 
       <div class="gallery-wrap">
-        <div class="gallery-header">
-          <div class="gallery-title">📷 Récord de momentos</div>
-          <div class="gallery-stats">26 fotos</div>
+        <div class="gallery-head">
+          <div class="gallery-title">📷 Un resumen de mis mejores días</div>
+          <div class="gallery-count" id="galleryCount">0 fotos</div>
         </div>
-
-        <div class="gallery-grid">
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Foto 1" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=800&q=80" alt="Foto 2" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="Foto 3" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Foto 4" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=800&q=80" alt="Foto 5" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Foto 6" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80" alt="Foto 7" /></div>
-          <div class="photo-card"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Foto 8" /></div>
-          <div class="photo-card more"><span>+17</span></div>
-        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
       </div>
     </div>
   </div>
+
+  <script>
+    const repo = 'milialassia/carmela-birthday';
+    const apiUrl = `https://api.github.com/repos/${repo}/contents`;
+
+    function isImageFile(name) {
+      return /\.(jpe?g|png|webp|gif|bmp)$/i.test(name);
+    }
+
+    async function loadGallery() {
+      try {
+        const res = await fetch(apiUrl);
+        if (!res.ok) throw new Error('No se pudo cargar la galería');
+        const files = await res.json();
+
+        const images = (Array.isArray(files) ? files : [])
+          .filter(file => file.type === 'file' && isImageFile(file.name))
+          .filter(file => file.name.toLowerCase() !== 'portada.jpeg')
+          .map(file => `https://raw.githubusercontent.com/${repo}/main/${encodeURIComponent(file.name)}`)
+          .filter(Boolean);
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const galleryCount = document.getElementById('galleryCount');
+
+        if (!galleryGrid) return;
+
+        const items = images.slice(0, 8);
+        galleryCount.textContent = `${images.length} fotos`;
+
+        if (items.length === 0) {
+          galleryGrid.innerHTML = '<div class="photo-card more"><div class="more-badge">+</div></div>';
+          return;
+        }
+
+        galleryGrid.innerHTML = items.map((src, i) => {
+          if (i === 8 - 1 && images.length > 8) {
+            return `<div class="photo-card more"><div class="more-badge">+${images.length - 8}</div></div>`;
+          }
+          return `<div class="photo-card"><img src="${src}" alt="Foto de Carmela ${i + 1}" loading="lazy" /></div>`;
+        }).join('');
+
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    loadGallery();
+  </script>
 </body>
 </html>
