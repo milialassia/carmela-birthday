@@ -61,14 +61,39 @@
   <div class="modal" id="modal"><button class="close" id="close">×</button><img id="modalImg" alt="Foto ampliada"></div>
   <script>
     const repo='milialassia/carmela-birthday';
-    const api=`https://api.github.com/repos/${repo}/contents`;
     const url=name=>`https://raw.githubusercontent.com/${repo}/main/${encodeURIComponent(name)}`;
-    const gallery=document.getElementById('gallery'),count=document.getElementById('count');
+    const gallery=document.getElementById('gallery');
     const modal=document.getElementById('modal'),modalImg=document.getElementById('modalImg');
     document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));tab.classList.add('active');document.getElementById(tab.dataset.tab).classList.add('active')}));
     function openPhoto(src,alt){modalImg.src=src;modalImg.alt=alt;modal.classList.add('open')} function closePhoto(){modal.classList.remove('open');modalImg.src=''}
     document.getElementById('close').onclick=closePhoto;modal.onclick=e=>{if(e.target===modal)closePhoto()};document.onkeydown=e=>{if(e.key==='Escape')closePhoto()};
-    async function load(){try{const res=await fetch(api);if(!res.ok)throw Error('API');const files=await res.json();const imgs=files.filter(f=>f.type==='file'&&/\.(jpe?g|png|webp|gif|bmp)$/i.test(f.name)).filter(f=>!f.name.includes('PORTADA'));imgs.slice(0,8).forEach(img=>{const div=document.createElement('div');div.className='photo';div.innerHTML=`<img loading="lazy" src="${url(img.name)}" alt="Foto">`;div.onclick=()=>openPhoto(url(img.name),img.name);gallery.appendChild(div)});if(count)count.textContent=imgs.length}catch(e){console.error(e)}}
+    const photos=[
+      'WhatsApp Image 2026-09-27 at 5.25.07 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.07 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.08 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.08 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.08 PM (3).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.08 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.09 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.09 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.09 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.10 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.10 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.10 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.11 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.11 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.11 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.12 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.12 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.12 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.13 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.13 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.13 PM.jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.14 PM (1).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.14 PM (2).jpeg',
+      'WhatsApp Image 2026-09-27 at 5.25.14 PM.jpeg'
+    ];
+    function load(){photos.forEach(name=>{const div=document.createElement('div');div.className='photo';div.innerHTML=`<img loading="lazy" src="${url(name)}" alt="Foto">`;div.onclick=()=>openPhoto(url(name),name);gallery.appendChild(div)})}
     load();
   </script>
 </body>
