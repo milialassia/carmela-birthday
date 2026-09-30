@@ -1,103 +1,115 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carmela | 13 años</title>
-  <style>
-    :root{--pink:#f35b83;--violet:#7665ee;--ink:#20202a;--muted:#777783;--line:#ececf2;--surface:#fff;--shadow:0 20px 60px rgba(52,35,88,.14)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:linear-gradient(135deg,#fff4f8 0%,#f3efff 100%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-    button{font:inherit} a{color:inherit;text-decoration:none}
-    .app{min-height:100vh;display:grid;grid-template-columns:240px 1fr 300px;gap:32px;max-width:1600px;margin:auto;padding:28px 28px 50px}
-    .brand{font-size:1.65rem;font-weight:900;letter-spacing:-.06em;padding:12px 14px 28px;background:linear-gradient(90deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-    .brand span{margin-left:-.3em}
-    .side-nav{position:sticky;top:28px;height:max-content}.nav-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:15px;font-weight:700;color:#555562;margin:4px 0;transition:.2s}.nav-item.active,.nav-item:hover{background:rgba(243,91,131,.12);color:var(--pink)}.nav-icon{font-size:1.4rem}
-    .feed{min-width:0}.mobile-title{display:none;font-weight:900;font-size:1.2rem;margin:4px 0 14px}.post{background:var(--surface);border:1px solid rgba(220,218,231,.8);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
-    .post-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px}.user{display:flex;align-items:center;gap:11px;font-weight:800}.avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--violet));color:white;display:flex;align-items:center;justify-content:center}.user small{display:block;font-size:.8rem;font-weight:400;color:var(--muted)}.more{font-size:1.4rem;cursor:pointer}
-    .hero{position:relative;background:#eadff0}.hero img{display:block;width:100%;height:min(70vh,680px);min-height:400px;object-fit:cover}.hero-overlay{position:absolute;inset:auto 0 0;padding:90px 0 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.4));display:flex;align-items:flex-end}.hero-title{font-size:clamp(2.2rem,8vw,3.2rem);font-weight:900;letter-spacing:-.02em;color:white;padding:0 24px 28px;text-shadow:0 4px 16px rgba(0,0,0,.25)}
-    .post-content{padding:18px 24px 24px}.post-actions{display:flex;justify-content:space-between;font-size:1.6rem;margin-bottom:14px}.action-group{display:flex;gap:18px}.likes{font-size:.92rem;font-weight:600;color:var(--muted)}
-    .section{background:var(--surface);border:1px solid rgba(220,218,231,.8);border-radius:28px;box-shadow:var(--shadow);margin-top:26px;overflow:hidden}.section-head{padding:24px 28px 16px;display:flex;justify-content:space-between;align-items:center}.section-title{font-size:1.35rem;font-weight:900;margin:0}.section-subtitle{font-size:.9rem;color:var(--muted);margin:6px 0 0}.tabs{display:flex;border-bottom:2px solid var(--line);padding:0 24px}.tab{background:none;border:none;padding:16px 20px;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;transition:.2s}.tab.active{color:var(--pink);border-color:var(--pink)}.tab-panel{display:none}.tab-panel.active{display:block}
-    .event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px 24px 28px}.event-card{padding:18px 14px;border-radius:19px;background:linear-gradient(145deg,#fff4f8,#f4f0ff);text-align:center}.event-icon{font-size:2.4rem;margin-bottom:8px}.event-label{font-size:.85rem;color:var(--muted);font-weight:600}.event-value{font-size:1.1rem;font-weight:800;margin-top:4px}
-    .invite{margin:0 24px 28px;padding:26px;border-radius:24px;background:linear-gradient(110deg,var(--pink),var(--violet));color:white;text-align:center;box-shadow:0 14px 32px rgba(117,83,224,.25)}.invite-label{font-size:.9rem;opacity:.85;margin-bottom:12px}.invite-text{font-size:1.1rem;line-height:1.6;font-weight:500}
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 24px 28px}.photo{position:relative;aspect-ratio:1;overflow:hidden;background:#eee;border-radius:12px}.photo img{width:100%;height:100%;object-fit:cover;cursor:pointer;transition:.3s}.photo img:hover{transform:scale(1.08)}
-    .right-card{position:sticky;top:28px;height:max-content;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.8);border-radius:26px;padding:24px;box-shadow:0 16px 42px rgba(60,40,100,.08);backdrop-filter:blur(8px)}.right-card h3{margin:0 0 18px;font-size:1.1rem;font-weight:800}.mini-event{display:flex;gap:10px;margin-bottom:20px}.mini-icon{font-size:1.8rem;flex-shrink:0}.mini-text{font-size:.9rem;flex:1;line-height:1.4}.mini-text b{display:block;font-size:1rem;margin-bottom:2px}.mini-text span{color:var(--muted);display:block;font-size:.85rem}.btn{width:100%;padding:15px;border:none;border-radius:16px;font-weight:700;cursor:pointer;transition:.2s;font-size:.95rem}.btn-confirm{background:linear-gradient(135deg,var(--pink),var(--violet));color:white;box-shadow:0 8px 24px rgba(243,91,131,.3);display:flex;align-items:center;justify-content:center;gap:10px}.btn-confirm:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(243,91,131,.4)}
-    .modal{display:none;position:fixed;inset:0;z-index:10;background:rgba(16,10,24,.9);align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.modal img{max-width:95vw;max-height:95vh;border-radius:16px;animation:pop .3s}.close{position:absolute;top:20px;right:20px;background:white;border:none;width:48px;height:48px;border-radius:50%;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center}@keyframes pop{from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1}}
-    .proximo-mobile{display:none}
-    @media(max-width:1200px){.app{grid-template-columns:200px 1fr 260px;gap:24px;padding:22px 20px 40px}.gallery{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:900px){.app{display:block;padding:12px 14px 30px}.side-nav{display:none}.mobile-title{display:block}.post,.section{border-radius:20px}.hero img{height:62vh;min-height:340px}.hero-title{font-size:clamp(1.8rem,6vw,2.6rem)}.event-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr);gap:4px;padding:0 24px 20px}.rightbar{display:none}#evento{display:none}.proximo-mobile{display:block;margin-top:26px}.proximo-mobile .right-card{position:relative;top:auto;background:var(--surface);border-radius:20px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Carmela cumple 13 🎉</title>
+<meta name="description" content="¡Estás invitado a los 13 años de Carmela! 31 de octubre, 12:30 hs.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Carmela cumple 13 🎉 ¡Estás invitado!">
+<meta property="og:description" content="31 de octubre · 12:30 a 17:00 · Complejo Deportivo La Atenguita">
+<meta property="og:image" content="https://milialassia.github.io/carmela-birthday/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://milialassia.github.io/carmela-birthday/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f35b83">
+<style>
+:root{--pink:#f35b83;--violet:#7665ee;--ink:#20202a;--muted:#777783;--line:#ececf2;--surface:#fff;--shadow:0 16px 44px rgba(52,35,88,.13)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(160deg,#fff4f8 0%,#f3efff 100%);background-attachment:fixed;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+a{color:inherit;text-decoration:none}button{font:inherit}
+.wrap{max-width:560px;margin:auto;padding:14px 14px 10px}
+.brand{text-align:center;font-size:1.5rem;font-weight:900;letter-spacing:-.05em;margin:6px 0 14px;background:linear-gradient(90deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.card{background:var(--surface);border:1px solid rgba(220,218,231,.8);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+.post-head{display:flex;align-items:center;gap:11px;padding:14px 18px;font-weight:800}.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;display:flex;align-items:center;justify-content:center}.post-head small{display:block;font-size:.78rem;font-weight:400;color:var(--muted)}
+.hero{position:relative;background:#eadff0}.hero img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.hero-overlay{position:absolute;inset:auto 0 0;padding:90px 22px 22px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.5))}
+.hero-title{font-size:clamp(2.4rem,11vw,3.4rem);font-weight:900;letter-spacing:-.02em;color:#fff;line-height:1;text-shadow:0 4px 16px rgba(0,0,0,.3)}.hero-sub{color:#fff;font-weight:700;margin-top:6px;font-size:1.05rem;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.msg{padding:18px 22px 22px;line-height:1.55;font-size:1rem}.msg p{margin:0}
+.section-title{font-size:1.25rem;font-weight:900;margin:0;padding:22px 22px 4px}.section-subtitle{font-size:.88rem;color:var(--muted);padding:0 22px 14px;margin:0}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 18px 20px}.count div{background:linear-gradient(145deg,#fff4f8,#f4f0ff);border-radius:16px;padding:12px 4px;text-align:center}.count b{display:block;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.count span{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.ev{display:flex;gap:14px;align-items:flex-start;padding:0 22px 16px}.ev-ico{font-size:1.8rem;flex-shrink:0;width:38px;text-align:center}.ev b{display:block;font-size:1.02rem}.ev span{color:var(--muted);font-size:.88rem}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:6px 18px 22px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:16px;border:none;font-weight:700;font-size:.92rem;cursor:pointer;text-align:center}
+.btn-soft{background:#f4f0ff;color:var(--violet)}.btn-main{background:linear-gradient(135deg,var(--pink),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(243,91,131,.32)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:0 14px 18px}.photo{aspect-ratio:1;overflow:hidden;background:#eee;border-radius:10px;cursor:pointer}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,transparent,rgba(255,244,248,.95) 40%)}.sticky .btn{max-width:532px;margin:auto;width:100%;padding:16px;font-size:1rem}
+.viewer{display:none;position:fixed;inset:0;z-index:40;background:rgba(16,10,24,.95);align-items:center;justify-content:center;touch-action:pan-y}.viewer.open{display:flex}.viewer img{max-width:100vw;max-height:88vh;object-fit:contain;border-radius:8px;user-select:none}
+.v-btn{position:absolute;background:rgba(255,255,255,.92);border:none;width:46px;height:46px;border-radius:50%;font-size:26px;display:flex;align-items:center;justify-content:center;cursor:pointer}.v-close{top:16px;right:16px}.v-prev{left:10px;top:50%;margin-top:-23px}.v-next{right:10px;top:50%;margin-top:-23px}.v-num{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-weight:600}
+.welcome{position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,#f35b83,#7665ee);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;transition:opacity .6s,visibility .6s}.welcome.hide{opacity:0;visibility:hidden}
+.welcome .big{font-size:clamp(2.6rem,13vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em}.welcome .small{font-size:1.1rem;opacity:.92;margin:14px 0 28px}.welcome .open-btn{background:#fff;color:var(--pink);border:none;padding:16px 34px;border-radius:999px;font-weight:800;font-size:1.05rem;box-shadow:0 12px 30px rgba(0,0,0,.2);animation:pulse 1.6s infinite}.welcome .emoji{font-size:3.4rem;margin-bottom:10px}
+@keyframes pulse{50%{transform:scale(1.06)}}
+canvas#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
+</style>
 </head>
 <body>
-  <div class="app">
-    <aside class="side-nav">
-      <div class="brand">carmela<span>✦</span></div>
-      <a class="nav-item active" href="#inicio"><span class="nav-icon">⌂</span>Inicio</a>
-      <a class="nav-item" href="#fotos"><span class="nav-icon">▦</span>Fotos</a>
-      <a class="nav-item" href="#evento"><span class="nav-icon">🎉</span>Mi cumpleaños</a>
-      <a class="nav-item" href="#compartir"><span class="nav-icon">✉</span>Compartir</a>
-    </aside>
+<div class="welcome" id="welcome">
+  <div class="emoji">🎂</div>
+  <div class="big">¡Estás<br>invitado!</div>
+  <div class="small">Carmela cumple 13 años</div>
+  <button class="open-btn" id="openBtn">Tocá para abrir 💌</button>
+</div>
+<canvas id="confetti"></canvas>
 
-    <main class="feed" id="inicio">
-      <div class="mobile-title">carmela ✦</div>
-      <article class="post">
-        <header class="post-head"><div class="user"><div class="avatar">C</div><div>carmela<small>Un día especial ✨</small></div></div><div class="more">•••</div></header>
-        <div class="hero"><img src="https://raw.githubusercontent.com/milialassia/carmela-birthday/main/PORTADA.jpeg" alt="Foto de Carmela"><div class="hero-overlay"><div class="hero-title">CARMELA</div></div></div>
-        <div class="post-content"><div class="post-actions"><div class="action-group"><span>♡</span><span>💬</span><span>✈</span></div><span>🔖</span></div><div class="likes">1.234 Me gusta</div><p>¡Hola! Te invito a celebrar mis 13 años en grande. Será un día lleno de alegría, risas y momentos especiales. ¡Espero que puedas acompañarme!</p></div>
-      </article>
+<div class="wrap">
+  <div class="brand">carmela ✦</div>
 
-      <section class="section" id="evento">
-        <div class="section-head"><div><div class="section-title">Información del evento</div><div class="section-subtitle">Todos los detalles para que no te lo pierdas</div></div><span>🎉</span></div>
-        <div class="tabs"><button class="tab active" data-tab="details">Detalles</button><button class="tab" data-tab="message">Mensaje especial</button></div>
-        <div class="tab-panel active" id="details"><div class="event-grid"><div class="event-card"><div class="event-icon">📅</div><div class="event-label">Fecha</div><div class="event-value">31 de octubre</div></div><div class="event-card"><div class="event-icon">🕐</div><div class="event-label">Hora</div><div class="event-value">12:30 a 17:00</div></div><div class="event-card"><div class="event-icon">📍</div><div class="event-label">Lugar</div><div class="event-value">Complejo Deportivo La Atenguita</div></div></div></div>
-        <div class="tab-panel" id="message"><div class="invite"><div class="invite-label">Una invitación especial para vos</div><div class="invite-text">Te invito a celebrar conmigo mi cumpleaños. Será una experiencia inolvidable llena de alegría y diversión. ¡Espero tu compañía!</div></div></div>
-      </section>
+  <article class="card">
+    <div class="post-head"><div class="avatar">C</div><div>carmela<small>Un día especial ✨</small></div></div>
+    <div class="hero"><img src="portada-web.jpg" alt="Foto de Carmela"><div class="hero-overlay"><div class="hero-title">CARMELA</div><div class="hero-sub">cumple 13 🎉</div></div></div>
+    <div class="msg"><p>¡Hola! Te invito a celebrar mis 13 años en grande. Será un día lleno de alegría, risas y momentos especiales. ¡Espero que puedas acompañarme!</p></div>
+  </article>
 
-      <div class="proximo-mobile"><div class="right-card"><h3>✨ Próximo evento</h3><div class="mini-event"><div class="mini-icon">📅</div><div class="mini-text"><b>31 de octubre de 2026</b><span>Una fecha muy especial</span></div></div><div class="mini-event"><div class="mini-icon">🕐</div><div class="mini-text"><b>12:30 a 17:00 hs</b><span>Te esperamos</span></div></div><div class="mini-event"><div class="mini-icon">📍</div><div class="mini-text"><b>Colectora Countrys 1912</b><span>Santa Fe, Argentina</span></div></div><a href="https://wa.me/543424798929?text=¡CARMELA!%20Confirmo%20mi%20asistencia%20a%20tu%20cumpleaños%20🎉" target="_blank" class="btn btn-confirm"><span>✓</span> Confirmar por WhatsApp</a></div></div>
+  <section class="card" id="evento">
+    <h2 class="section-title">Faltan…</h2>
+    <p class="section-subtitle">para el gran día</p>
+    <div class="count"><div><b id="cd">--</b><span>días</span></div><div><b id="ch">--</b><span>horas</span></div><div><b id="cm">--</b><span>min</span></div><div><b id="cs">--</b><span>seg</span></div></div>
+  </section>
 
-      <section class="section" id="fotos"><div class="section-head"><div><div class="section-title">Un resumen de mis mejores días</div><div class="section-subtitle">Momentos especiales que quiero compartir</div></div><span>📸</span></div><div class="gallery" id="gallery"></div></section>
-    </main>
+  <section class="card">
+    <h2 class="section-title">✨ Próximo evento</h2>
+    <p class="section-subtitle">Todos los detalles para que no te lo pierdas</p>
+    <div class="ev"><div class="ev-ico">📅</div><div><b>31 de octubre de 2026</b><span>Una fecha muy especial</span></div></div>
+    <div class="ev"><div class="ev-ico">🕐</div><div><b>12:30 a 17:00 hs</b><span>Te esperamos</span></div></div>
+    <div class="ev"><div class="ev-ico">📍</div><div><b>Complejo Deportivo La Atenguita</b><span>Colectora Countrys 1912 · Santa Fe, Argentina</span></div></div>
+    <div class="actions">
+      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Complejo+Deportivo+La+Atenguita+Colectora+Countrys+1912+Santa+Fe+Argentina">🗺️ Cómo llegar</a>
+      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cumple+de+Carmela+%F0%9F%8E%89&dates=20261031T123000/20261031T170000&ctz=America/Argentina/Buenos_Aires&location=Complejo+Deportivo+La+Atenguita,+Colectora+Countrys+1912,+Santa+Fe&details=Cumple+de+13+a%C3%B1os+de+Carmela">📆 Agregar al calendario</a>
+    </div>
+  </section>
 
-    <aside class="rightbar"><div class="right-card"><h3>✨ Próximo evento</h3><div class="mini-event"><div class="mini-icon">📅</div><div class="mini-text"><b>31 de octubre de 2026</b><span>Una fecha muy especial</span></div></div><div class="mini-event"><div class="mini-icon">🕐</div><div class="mini-text"><b>12:30 a 17:00 hs</b><span>Te esperamos</span></div></div><div class="mini-event"><div class="mini-icon">📍</div><div class="mini-text"><b>Colectora Countrys 1912</b><span>Santa Fe, Argentina</span></div></div><a href="https://wa.me/543424798929?text=¡CARMELA!%20Confirmo%20mi%20asistencia%20a%20tu%20cumpleaños%20🎉" target="_blank" class="btn btn-confirm"><span>✓</span> Confirmar por WhatsApp</a></div></aside>
-  </div>
+  <section class="card" id="fotos">
+    <h2 class="section-title">Un resumen de mis mejores días 📸</h2>
+    <p class="section-subtitle">Tocá una foto para verla grande y deslizá para ver más</p>
+    <div class="gallery" id="gallery"></div>
+  </section>
+</div>
 
-  <div class="modal" id="modal"><button class="close" id="close">×</button><img id="modalImg" alt="Foto ampliada"></div>
-  <script>
-    const repo='milialassia/carmela-birthday';
-    const url=name=>`https://raw.githubusercontent.com/${repo}/main/${encodeURIComponent(name)}`;
-    const gallery=document.getElementById('gallery');
-    const modal=document.getElementById('modal'),modalImg=document.getElementById('modalImg');
-    document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));tab.classList.add('active');document.getElementById(tab.dataset.tab).classList.add('active')}));
-    function openPhoto(src,alt){modalImg.src=src;modalImg.alt=alt;modal.classList.add('open')} function closePhoto(){modal.classList.remove('open');modalImg.src=''}
-    document.getElementById('close').onclick=closePhoto;modal.onclick=e=>{if(e.target===modal)closePhoto()};document.onkeydown=e=>{if(e.key==='Escape')closePhoto()};
-    const photos=[
-      'WhatsApp Image 2026-09-27 at 5.25.07 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.07 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.08 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.08 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.08 PM (3).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.08 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.09 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.09 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.09 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.10 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.10 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.10 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.11 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.11 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.11 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.12 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.12 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.12 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.13 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.13 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.13 PM.jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.14 PM (1).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.14 PM (2).jpeg',
-      'WhatsApp Image 2026-09-27 at 5.25.14 PM.jpeg'
-    ];
-    function load(){photos.forEach(name=>{const div=document.createElement('div');div.className='photo';div.innerHTML=`<img loading="lazy" src="${url(name)}" alt="Foto">`;div.onclick=()=>openPhoto(url(name),name);gallery.appendChild(div)})}
-    load();
-  </script>
+<div class="sticky"><a class="btn btn-main" target="_blank" rel="noopener" href="https://wa.me/543424798929?text=%C2%A1CARMELA!%20Confirmo%20mi%20asistencia%20a%20tu%20cumplea%C3%B1os%20%F0%9F%8E%89">✓ Confirmar por WhatsApp</a></div>
+
+<div class="viewer" id="viewer"><button class="v-btn v-close" id="vClose" aria-label="Cerrar">×</button><button class="v-btn v-prev" id="vPrev" aria-label="Anterior">‹</button><img id="vImg" alt="Foto ampliada"><button class="v-btn v-next" id="vNext" aria-label="Siguiente">›</button><div class="v-num" id="vNum"></div></div>
+
+<script>
+const photos=["WhatsApp Image 2026-09-27 at 5.25.07 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.07 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.08 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.08 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.08 PM (3).jpeg", "WhatsApp Image 2026-09-27 at 5.25.08 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.09 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.09 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.09 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.10 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.10 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.10 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.11 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.11 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.11 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.12 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.12 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.12 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.13 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.13 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.13 PM.jpeg", "WhatsApp Image 2026-09-27 at 5.25.14 PM (1).jpeg", "WhatsApp Image 2026-09-27 at 5.25.14 PM (2).jpeg", "WhatsApp Image 2026-09-27 at 5.25.14 PM.jpeg"];
+const enc=n=>encodeURIComponent(n);
+const gallery=document.getElementById('gallery');
+photos.forEach((name,i)=>{const d=document.createElement('div');d.className='photo';d.innerHTML='<img loading="lazy" src="thumbs/t'+String(i+1).padStart(2,'0')+'.jpg" alt="Foto '+(i+1)+'">';d.onclick=()=>openViewer(i);gallery.appendChild(d)});
+const viewer=document.getElementById('viewer'),vImg=document.getElementById('vImg'),vNum=document.getElementById('vNum');let cur=0;
+function show(i){cur=(i+photos.length)%photos.length;vImg.src=enc(photos[cur]);vNum.textContent=(cur+1)+' / '+photos.length;[cur+1,cur-1].forEach(j=>{new Image().src=enc(photos[(j+photos.length)%photos.length])})}
+function openViewer(i){show(i);viewer.classList.add('open')}function closeViewer(){viewer.classList.remove('open');vImg.removeAttribute('src')}
+document.getElementById('vClose').onclick=closeViewer;document.getElementById('vPrev').onclick=()=>show(cur-1);document.getElementById('vNext').onclick=()=>show(cur+1);
+viewer.onclick=e=>{if(e.target===viewer)closeViewer()};document.addEventListener('keydown',e=>{if(!viewer.classList.contains('open'))return;if(e.key==='Escape')closeViewer();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+let x0=null;viewer.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});viewer.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));x0=null});
+const target=Date.parse('2026-10-31T12:30:00-03:00');
+function tick(){let s=Math.max(0,Math.floor((target-Date.now())/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;
+cd.textContent=d;ch.textContent=String(h).padStart(2,'0');cm.textContent=String(m).padStart(2,'0');cs.textContent=String(s).padStart(2,'0')}
+tick();setInterval(tick,1000);
+const cv=document.getElementById('confetti'),ctx=cv.getContext('2d');let parts=[],run=false;
+function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+function burst(){const cols=['#f35b83','#7665ee','#ffd166','#06d6a0','#fff'];for(let i=0;i<140;i++)parts.push({x:innerWidth/2,y:innerHeight*.6,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,r:Math.random()*6+3,c:cols[i%cols.length],a:Math.random()*6,life:0});if(!run){run=true;requestAnimationFrame(frame)}}
+function frame(){ctx.clearRect(0,0,cv.width,cv.height);parts.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=.2;p.life++;ctx.fillStyle=p.c;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);ctx.restore()});parts=parts.filter(p=>p.y<cv.height+20&&p.life<160);if(parts.length)requestAnimationFrame(frame);else{run=false;ctx.clearRect(0,0,cv.width,cv.height)}}
+document.getElementById('openBtn').onclick=()=>{document.getElementById('welcome').classList.add('hide');burst();setTimeout(burst,350)};
+</script>
 </body>
 </html>
