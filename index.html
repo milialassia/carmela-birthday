@@ -7,13 +7,14 @@
 <meta name="description" content="¡Estás invitado a los 13 años de Carmela! 31 de octubre, 12:30 hs.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Carmela cumple 13 🎉 ¡Estás invitado!">
-<meta property="og:description" content="31 de octubre · 12:30 a 17:00 · Complejo Deportivo La Atenguita">
+<meta property="og:description" content="31 de octubre · 12:30 a 17:00 · Complejo Deportivo &quot;La Tatenguita&quot;">
 <meta property="og:image" content="https://milialassia.github.io/carmela-birthday/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://milialassia.github.io/carmela-birthday/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f35b83">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <style>
 :root{--pink:#f35b83;--violet:#7665ee;--ink:#20202a;--muted:#777783;--line:#ececf2;--surface:#fff;--shadow:0 16px 44px rgba(52,35,88,.13)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
@@ -26,7 +27,13 @@ a{color:inherit;text-decoration:none}button{font:inherit}
 .hero{position:relative;background:#eadff0}.hero img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
 .hero-overlay{position:absolute;inset:auto 0 0;padding:90px 22px 22px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.5))}
 .hero-title{font-size:clamp(2.4rem,11vw,3.4rem);font-weight:900;letter-spacing:-.02em;color:#fff;line-height:1;text-shadow:0 4px 16px rgba(0,0,0,.3)}.hero-sub{color:#fff;font-weight:700;margin-top:6px;font-size:1.05rem;text-shadow:0 2px 10px rgba(0,0,0,.35)}
-.msg{padding:18px 22px 22px;line-height:1.55;font-size:1rem}.msg p{margin:0}
+.topbar{display:flex;align-items:center;justify-content:space-between;margin:4px 4px 10px}.topbar .brand{margin:0;font-family:Pacifico,cursive;font-weight:400;font-size:1.7rem;letter-spacing:0}.top-ico{font-size:1.4rem;letter-spacing:10px}
+.stories{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 16px;scrollbar-width:none}.stories::-webkit-scrollbar{display:none}.story{flex:0 0 auto;text-align:center;font-size:.74rem;font-weight:600;color:var(--ink)}.ring{display:flex;width:68px;height:68px;border-radius:50%;padding:3px;background:linear-gradient(45deg,#ffb347,var(--pink),var(--violet));margin:0 auto 5px}.ring i{font-style:normal;width:100%;height:100%;border-radius:50%;background:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.avatar-ring{padding:2px;border-radius:50%;background:linear-gradient(45deg,#ffb347,var(--pink),var(--violet))}.avatar-ring .avatar{border:2px solid #fff;width:38px;height:38px}.who{flex:1;font-weight:800;line-height:1.15}.tick{display:inline-block;background:#3897f0;color:#fff;border-radius:50%;width:15px;height:15px;font-size:.6rem;text-align:center;line-height:15px;vertical-align:middle}.dots{font-weight:900}
+.actions-row{display:flex;justify-content:space-between;padding:12px 18px 4px;font-size:1.6rem}.actions-row .left{display:flex;gap:16px}.ig-btn{background:none;border:none;padding:0;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--ink)}.ig-btn.liked{color:#ed4956;animation:pop .35s}@keyframes pop{50%{transform:scale(1.35)}}
+.likes{padding:4px 18px;font-size:.92rem}.caption{padding:2px 18px 4px;font-size:.95rem;line-height:1.5}.tags{color:#00376b}
+.comments{padding:4px 18px 18px;font-size:.92rem;line-height:1.55}.c-link{color:var(--muted);margin-bottom:2px}.when{color:var(--muted);font-size:.68rem;letter-spacing:.04em;margin-top:6px}
+.bigheart{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:6rem;color:#fff;opacity:0;pointer-events:none;text-shadow:0 6px 30px rgba(0,0,0,.3)}.bigheart.on{animation:bh .8s}@keyframes bh{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(1.15)}60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 .section-title{font-size:1.25rem;font-weight:900;margin:0;padding:22px 22px 4px}.section-subtitle{font-size:.88rem;color:var(--muted);padding:0 22px 14px;margin:0}
 .count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 18px 20px}.count div{background:linear-gradient(145deg,#fff4f8,#f4f0ff);border-radius:16px;padding:12px 4px;text-align:center}.count b{display:block;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.count span{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .ev{display:flex;gap:14px;align-items:flex-start;padding:0 22px 16px}.ev-ico{font-size:1.8rem;flex-shrink:0;width:38px;text-align:center}.ev b{display:block;font-size:1.02rem}.ev span{color:var(--muted);font-size:.88rem}
@@ -38,7 +45,7 @@ a{color:inherit;text-decoration:none}button{font:inherit}
 .viewer{display:none;position:fixed;inset:0;z-index:40;background:rgba(16,10,24,.95);align-items:center;justify-content:center;touch-action:pan-y}.viewer.open{display:flex}.viewer img{max-width:100vw;max-height:88vh;object-fit:contain;border-radius:8px;user-select:none}
 .v-btn{position:absolute;background:rgba(255,255,255,.92);border:none;width:46px;height:46px;border-radius:50%;font-size:26px;display:flex;align-items:center;justify-content:center;cursor:pointer}.v-close{top:16px;right:16px}.v-prev{left:10px;top:50%;margin-top:-23px}.v-next{right:10px;top:50%;margin-top:-23px}.v-num{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#fff;font-weight:600}
 .welcome{position:fixed;inset:0;z-index:60;background:linear-gradient(160deg,#f35b83,#7665ee);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;transition:opacity .6s,visibility .6s}.welcome.hide{opacity:0;visibility:hidden}
-.welcome .big{font-size:clamp(2.6rem,13vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em}.welcome .small{font-size:1.1rem;opacity:.92;margin:14px 0 28px}.welcome .open-btn{background:#fff;color:var(--pink);border:none;padding:16px 34px;border-radius:999px;font-weight:800;font-size:1.05rem;box-shadow:0 12px 30px rgba(0,0,0,.2);animation:pulse 1.6s infinite}.welcome .emoji{font-size:3.4rem;margin-bottom:10px}
+.welcome .big{font-size:clamp(2.6rem,13vw,4rem);font-weight:900;line-height:1;letter-spacing:-.03em}.welcome .name{font-family:Pacifico,"Brush Script MT",cursive;font-size:clamp(3.6rem,19vw,5.6rem);line-height:1.1;margin:10px 0 34px;text-shadow:0 6px 24px rgba(0,0,0,.25)}.welcome .open-btn{background:#fff;color:var(--pink);border:none;padding:16px 34px;border-radius:999px;font-weight:800;font-size:1.05rem;box-shadow:0 12px 30px rgba(0,0,0,.2);animation:pulse 1.6s infinite}.welcome .emoji{font-size:3.4rem;margin-bottom:10px}
 @keyframes pulse{50%{transform:scale(1.06)}}
 canvas#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
 </style>
@@ -47,18 +54,28 @@ canvas#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
 <div class="welcome" id="welcome">
   <div class="emoji">🎂</div>
   <div class="big">¡Estás<br>invitado!</div>
-  <div class="small">Carmela cumple 13 años</div>
+  <div class="name">Carmela</div>
   <button class="open-btn" id="openBtn">Tocá para abrir 💌</button>
 </div>
 <canvas id="confetti"></canvas>
 
 <div class="wrap">
-  <div class="brand">carmela ✦</div>
+  <div class="topbar"><div class="brand">carmela ✦</div><div class="top-ico">♡ ✈</div></div>
+
+  <div class="stories">
+    <a class="story" href="#evento"><span class="ring"><i>🎂</i></span>Cuenta</a>
+    <a class="story" href="#lugar"><span class="ring"><i>📍</i></span>Lugar</a>
+    <a class="story" href="#fotos"><span class="ring"><i>📸</i></span>Fotos</a>
+    <a class="story" href="https://wa.me/543424798929?text=%C2%A1CARMELA!%20Confirmo%20mi%20asistencia%20a%20tu%20cumplea%C3%B1os%20%F0%9F%8E%89" target="_blank" rel="noopener"><span class="ring"><i>✅</i></span>Confirmar</a>
+  </div>
 
   <article class="card">
-    <div class="post-head"><div class="avatar">C</div><div>carmela<small>Un día especial ✨</small></div></div>
-    <div class="hero"><img src="portada-web.jpg" alt="Foto de Carmela"><div class="hero-overlay"><div class="hero-title">CARMELA</div><div class="hero-sub">cumple 13 🎉</div></div></div>
-    <div class="msg"><p>¡Hola! Te invito a celebrar mis 13 años en grande. Será un día lleno de alegría, risas y momentos especiales. ¡Espero que puedas acompañarme!</p></div>
+    <div class="post-head"><div class="avatar-ring"><div class="avatar">C</div></div><div class="who">carmela <span class="tick">✔</span><small>Santa Fe, Argentina</small></div><div class="dots">•••</div></div>
+    <div class="hero" id="hero"><img src="portada-web.jpg" alt="Foto de Carmela"><div class="bigheart" id="bigHeart">♥</div><div class="hero-overlay"><div class="hero-title">CARMELA</div><div class="hero-sub">13 años 🎉</div></div></div>
+    <div class="actions-row"><div class="left"><button class="ig-btn" id="likeBtn" aria-label="Me gusta">♡</button><span class="ig-btn">💬</span><span class="ig-btn">✈</span></div><span class="ig-btn">🔖</span></div>
+    <div class="likes">Les gusta a <b>mica_</b> y <b id="likeCount">1.234 personas más</b></div>
+    <div class="caption"><b>carmela</b> Cumplo 13 y no me lo pienso perder solo 😎🎉 Vení a festejar conmigo, va a estar buenísimo. ¡Confirmá y no faltes! 💖 <span class="tags">#Carmela13 #ModoCumple #Fiesta</span></div>
+    <div class="comments"><div class="c-link">Ver los 3 comentarios</div><div class="c"><b>mica_</b> ¡¡Ahí estoy!! 🎉🎉</div><div class="c"><b>sofi.r</b> no me lo pierdo 😍🔥</div><div class="c"><b>juanchi</b> Qué ganas!!! 🥳</div><div class="when">HACE 2 HORAS</div></div>
   </article>
 
   <section class="card" id="evento">
@@ -67,15 +84,15 @@ canvas#confetti{position:fixed;inset:0;z-index:70;pointer-events:none}
     <div class="count"><div><b id="cd">--</b><span>días</span></div><div><b id="ch">--</b><span>horas</span></div><div><b id="cm">--</b><span>min</span></div><div><b id="cs">--</b><span>seg</span></div></div>
   </section>
 
-  <section class="card">
+  <section class="card" id="lugar">
     <h2 class="section-title">✨ Próximo evento</h2>
     <p class="section-subtitle">Todos los detalles para que no te lo pierdas</p>
     <div class="ev"><div class="ev-ico">📅</div><div><b>31 de octubre de 2026</b><span>Una fecha muy especial</span></div></div>
     <div class="ev"><div class="ev-ico">🕐</div><div><b>12:30 a 17:00 hs</b><span>Te esperamos</span></div></div>
-    <div class="ev"><div class="ev-ico">📍</div><div><b>Complejo Deportivo La Atenguita</b><span>Colectora Countrys 1912 · Santa Fe, Argentina</span></div></div>
+    <div class="ev"><div class="ev-ico">📍</div><div><b>Complejo Deportivo “La Tatenguita”</b><span>Colectora Countrys 1912 · Santa Fe, Argentina</span></div></div>
     <div class="actions">
-      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Complejo+Deportivo+La+Atenguita+Colectora+Countrys+1912+Santa+Fe+Argentina">🗺️ Cómo llegar</a>
-      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cumple+de+Carmela+%F0%9F%8E%89&dates=20261031T123000/20261031T170000&ctz=America/Argentina/Buenos_Aires&location=Complejo+Deportivo+La+Atenguita,+Colectora+Countrys+1912,+Santa+Fe&details=Cumple+de+13+a%C3%B1os+de+Carmela">📆 Agregar al calendario</a>
+      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Complejo+Deportivo+La+Tatenguita+Colectora+Countrys+1912+Santa+Fe+Argentina">🗺️ Cómo llegar</a>
+      <a class="btn btn-soft" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Cumple+de+Carmela+%F0%9F%8E%89&dates=20261031T123000/20261031T170000&ctz=America/Argentina/Buenos_Aires&location=Complejo+Deportivo+La+Tatenguita,+Colectora+Countrys+1912,+Santa+Fe&details=Cumple+de+13+a%C3%B1os+de+Carmela">📆 Agregar al calendario</a>
     </div>
   </section>
 
@@ -109,6 +126,11 @@ const cv=document.getElementById('confetti'),ctx=cv.getContext('2d');let parts=[
 function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
 function burst(){const cols=['#f35b83','#7665ee','#ffd166','#06d6a0','#fff'];for(let i=0;i<140;i++)parts.push({x:innerWidth/2,y:innerHeight*.6,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,r:Math.random()*6+3,c:cols[i%cols.length],a:Math.random()*6,life:0});if(!run){run=true;requestAnimationFrame(frame)}}
 function frame(){ctx.clearRect(0,0,cv.width,cv.height);parts.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=.2;p.life++;ctx.fillStyle=p.c;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.fillRect(-p.r,-p.r/2,p.r*2,p.r);ctx.restore()});parts=parts.filter(p=>p.y<cv.height+20&&p.life<160);if(parts.length)requestAnimationFrame(frame);else{run=false;ctx.clearRect(0,0,cv.width,cv.height)}}
+
+let liked=false;const likeBtn=document.getElementById('likeBtn'),likeCount=document.getElementById('likeCount'),bigHeart=document.getElementById('bigHeart');
+function setLike(v){liked=v;likeBtn.textContent=v?'♥':'♡';likeBtn.classList.toggle('liked',v);likeCount.textContent=v?'1.235 personas más':'1.234 personas más'}
+likeBtn.onclick=()=>setLike(!liked);
+document.getElementById('hero').addEventListener('dblclick',()=>{setLike(true);bigHeart.classList.remove('on');void bigHeart.offsetWidth;bigHeart.classList.add('on')});
 document.getElementById('openBtn').onclick=()=>{document.getElementById('welcome').classList.add('hide');burst();setTimeout(burst,350)};
 </script>
 </body>
